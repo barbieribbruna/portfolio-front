@@ -1,0 +1,283 @@
+/* ==================== RESPONSIVIDADE - MOBILE (até 768px) ==================== */
+
+@media (max-width: 768px) {
+
+    /* AJUSTE GERAL de respiro */
+    section {
+        width: 92%;
+        margin: 1.5rem auto;
+    }
+
+    /* HEADER e NAVEGAÇÃO: evita "estouro" */
+    header {
+        padding: 1rem;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    /* HOME: vira coluna */
+    #about article {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.25rem;
+    }
+
+    #about img {
+        width: 160px;
+    }
+
+    #about p {
+        max-width: 60ch;
+        margin: 0 auto;
+        text-align: justify;
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    /* HOME - VIDEO: garante que o iframe não estoure */
+    #video {
+        text-align: center;
+    }
+
+    #video figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    #video iframe {
+        width: 100%;
+        max-width: 720px;
+        aspect-ratio: 16 / 9;
+        height: auto;
+    }
+
+    /* CONTATO: grid vira 1 coluna */
+    .main_contato {
+        grid-template-columns: 1fr;
+        width: 92%;
+        margin: 1.5rem auto;
+    }
+
+    /* Form: ajustes finos */
+    form {
+        padding: 1rem;
+    }
+
+    /* Formulário — textarea adaptável no mobile */
+    textarea {
+        resize: vertical;
+        min-height: 6rem;
+        height: auto;
+    }
+
+    /* MOBILE — Contato: mapa menor e proporcional */
+    .article_mapa {
+        width: 90%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    /* MOBILE — endereço em uma única linha */
+    .article_mapa address {
+        width: 100%;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: clamp(0.75rem, 3vw, 0.9rem);
+    }
+
+    /* MAPA: mantém proporção e não domina a tela */
+    .article_mapa iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        height: auto;
+    }
+
+    /* FOOTER: texto em uma linha no mobile */
+    footer {
+        padding-inline: 0.5rem;
+    }
+
+    footer h3 {
+        max-width: 100%;
+        font-size: clamp(0.62rem, 2.6vw, 0.82rem);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1;
+    }
+}
+
+/* ==================== RESPONSIVIDADE - TABLET (769px até 1024px) ==================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    /* Área principal: usar mais largura útil (evita “conteúdo pequeno”) */
+    main>section {
+        width: 94%;
+        margin: 2rem auto;
+    }
+
+    /* Header: mantém proporção sem esticar */
+    header {
+        padding: 1.25rem 2rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    /* HOME: ainda em coluna (melhor leitura em tablet) */
+    #about article {
+        flex-direction: column;
+        align-items: center;
+        text-align: justify;
+        gap: 1.5rem;
+    }
+
+    #about img {
+        width: 220px;
+    }
+
+    #about p {
+        max-width: 80ch;
+        margin: 0 auto;
+        text-align: justify;
+    }
+
+    /* HOME — Vídeo: maior e proporcional no tablet */
+    #video iframe {
+        width: 100%;
+        max-width: 720px;
+        aspect-ratio: 16 / 9;
+        height: auto;
+    }
+
+    /* CONTATO: mantém 2 colunas, mas com respiro */
+    .main_contato {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        width: 80%;
+        margin: 2rem auto;
+    }
+
+    /* Formulário: mais espaço interno */
+    form {
+        padding: 1.5rem;
+    }
+
+    textarea {
+        min-height: 7rem;
+    }
+
+    /* CONTATO: mapa ~60% centralizado */
+    .article_mapa {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    /* Mapa: proporcional ao form */
+    .article_mapa iframe {
+        aspect-ratio: 16 / 9;
+        height: auto;
+    }
+
+    /* Footer: texto legível sem exagerar */
+    footer h3 {
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
+}
+
+/* ==================== RESPONSIVIDADE - DESKTOP (1025px+) ==================== */
+
+@media (min-width: 1025px) {
+
+    /* Conteúdo mais “profissional” em telas grandes */
+    main>section {
+        width: min(1100px, 92%);
+        margin: 2rem auto;
+    }
+
+    /* HOME — Vídeo: grande e centralizado */
+    #video {
+        text-align: center;
+    }
+
+    #video figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+    }
+
+    #video iframe {
+        width: min(900px, 100%);
+        aspect-ratio: 16 / 9;
+        height: auto;
+    }
+
+    /* CONTATO: 2 colunas contidas */
+    .main_contato {
+        width: min(1100px, 92%);
+        margin: 4rem auto;
+        grid-template-columns: repeat(2, minmax(0, 2fr));
+        gap: 3rem;
+    }
+
+    /* CONTATO: mapa ~60% centralizado */
+    .article_mapa {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    /* Mapa: proporcional ao form */
+    .article_mapa iframe {
+        aspect-ratio: 24 / 15;
+        height: auto;
+    }
+
+    /* Footer sem ellipsis no desktop */
+    footer h3 {
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: clip;
+        font-size: 1rem;
+    }
+}
+
+/* Desktop médio (até 1366px) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+
+    main>section,
+    .main_contato {
+        width: min(1000px, 92%);
+    }
+}
+
+/* Desktop grande (1600+ / até 23") */
+@media (min-width: 1600px) {
+
+    main>section,
+    .main_contato {
+        width: min(1200px, 85%);
+    }
+}
