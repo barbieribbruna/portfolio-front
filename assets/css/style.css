@@ -1,12 +1,12 @@
-/* Reset das estilizações + Definição de propriedades globais */
+/* ================== RESET & GLOBAIS ================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
-/* Variável cor: guarda as cores da paleta do site (facilita para quando quiser alterar o valor delas) */
+/* Paleta de cores */
 :root {
     --purple-200: #9a7bd1;
     --purple-500: #6b36c8;
@@ -16,7 +16,7 @@
     --white: #f9f9f9;
 }
 
-/* Define as propriedades-padrão do elemento "body" */
+/* Body base */
 body {
     background: var(--gray-200);
     color: var(--black-800);
@@ -24,15 +24,14 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    margin: 0;
 }
 
-/* Controla o crescimento vertical */
+/* Main cresce para ocupar altura */
 main {
     flex: 1;
 }
 
-/* Regra global para todas as imagens */
+/* Imagens e iframes responsivos */
 img {
     max-width: 100%;
     height: auto;
@@ -44,7 +43,7 @@ iframe {
     display: block;
 }
 
-/* Personaliza títulos e parágrafos */
+/* Títulos e textos */
 h1,
 h2,
 h3 {
@@ -76,10 +75,13 @@ p {
     text-align: justify;
 }
 
+/* Seções genéricas (páginas internas, contato etc.) */
 section {
     width: 90%;
     margin: 2rem auto;
 }
+
+/* ================== HEADER ================== */
 
 header {
     background: var(--purple-800);
@@ -89,6 +91,7 @@ header {
     align-items: center;
     position: sticky;
     top: 0;
+    z-index: 10;
 }
 
 nav ul {
@@ -108,31 +111,149 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* estiliza a seção "sobre" */
-#about article {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+/* ===================================================== */
+/* ================== HOME - SOBRE MIM ================== */
+/* ===================================================== */
+
+.sobre-mim {
+    width: 100%;
+    margin: 2rem 0;
 }
 
-#about img {
-    width: 200px;
-    flex-shrink: 0;
+.sobre-mim .sobre-container {
+    width: 90%;
+    margin: 0 auto 1rem auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3rem;
+}
+
+/* Avatar */
+.sobre-mim .sobre-foto img {
+    width: clamp(320px, 30vw, 340px);
     border-radius: 50%;
     background-color: var(--gray-200);
 }
 
-#about p {
+/* Bloco de texto ao lado do avatar */
+.sobre-mim .sobre-texto {
     flex: 1;
-}
-
-/* estiliza a seção "vídeo" */
-#video figure {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-/* estiliza a seção "footer" */
+/* Título "Sobre mim" */
+.sobre-mim .sobre-texto h2 {
+    font-size: 3rem;
+    color: var(--black-800);
+    padding: 0 0 0.5rem 0;
+}
+
+/* Aplica a TODOS os h3 dentro de .sobre-texto,
+   EXCETO o que tiver a classe .tecnologias-titulo */
+.sobre-mim .sobre-texto h3:not(.tecnologias-titulo) {
+    font-size: clamp(1.4rem, 2.4vw, 2rem);
+    color: var(--black-800);
+    text-align: left;
+    padding: 0 0 1rem 0;
+}
+
+/* Parágrafos do Sobre mim */
+.sobre-mim .sobre-texto p {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* ===================================================== */
+/* ========== HARD SKILLS DENTRO DO SOBRE-TEXTO ========= */
+/* ===================================================== */
+
+.sobre-texto .tecnologias {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sobre-texto .tecnologias-titulo {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--black-800);
+    text-align: left;
+}
+
+.tecnologias-titulo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--black-800);
+    text-align: left;
+}
+
+.sobre-texto .tags-tecnologias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.sobre-texto .tag {
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background-color: var(--purple-500);
+    color: var(--gray-200);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    white-space: nowrap;
+}
+
+.sobre-mim .sobre-texto h3.tecnologias-titulo {
+    font-size: 1.5rem;
+    /* AQUI você controla o tamanho de Hard Skills */
+    font-weight: 700;
+    color: var(--black-800);
+    text-align: left;
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+/* ===================================================== */
+/* ================== HOME - VÍDEO FAVORITO ============ */
+/* ===================================================== */
+
+.video-favorito {
+    width: 90%;                
+    margin: 2rem auto 3rem auto;
+    text-align: center;   
+}
+
+.video-favorito h3 {
+    color: var(--black-800);
+    margin: 0 0 1rem 0;
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+/* Container do vídeo */
+.video-container {
+    width: 100%;
+    max-width: 900px;           
+    margin: 0 auto;           
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.video-container iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+}
+
+/* ===================================================== */
+/* ================== FOOTER ============================ */
+/* ===================================================== */
+
 footer {
     display: flex;
     flex-direction: column;
@@ -163,10 +284,12 @@ footer img {
 }
 
 footer img:hover {
-    filter: brightness(0) saturate(100%) invert(65%) sepia(59%) saturate(2437%) hue-rotate(213deg) brightness(85%) contrast(88%)
+    filter: brightness(0) saturate(100%) invert(65%) sepia(59%) saturate(2437%) hue-rotate(213deg) brightness(85%) contrast(88%);
 }
 
-/* estiliza a seção "formulário" */
+/* ===================================================== */
+/* ================== CONTATO - FORMULÁRIO ============= */
+/* ===================================================== */
 
 .main_contato {
     display: grid;
@@ -183,14 +306,25 @@ form {
     gap: 0.5rem;
     padding: 1.5rem;
     border-radius: 0.75rem;
+    background-color: var(--white);
 }
 
+/* Inputs e textarea dentro do form */
 form input,
-textarea {
+form textarea {
     padding: 0.5rem;
     border-radius: 0.75rem;
     border: none;
     font-size: 1rem;
+    font-family: inherit;
+}
+
+/* Placeholder */
+form input::placeholder,
+form textarea::placeholder {
+    color: var(--black-800);
+    opacity: 0.7;
+    font-style: italic;
 }
 
 textarea {
@@ -216,7 +350,15 @@ form span {
     font-size: 0.75rem;
 }
 
-/* estiliza a seção "mapa" */
+input,
+textarea {
+    background-color: #0029800b !important;
+}
+
+/* ===================================================== */
+/* ================== CONTATO - MAPA ==================== */
+/* ===================================================== */
+
 .article_mapa {
     display: flex;
     flex-direction: column;

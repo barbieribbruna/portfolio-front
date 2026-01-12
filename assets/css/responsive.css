@@ -8,7 +8,7 @@
         margin: 1.5rem auto;
     }
 
-    /* HEADER e NAVEGAÇÃO: evita "estouro" */
+    /* HEADER e NAVEGAÇÃO */
     header {
         padding: 1rem;
         flex-wrap: wrap;
@@ -25,19 +25,28 @@
         font-size: 1.5rem;
     }
 
-    /* HOME: vira coluna */
-    #about article {
+    /* HOME - SOBRE MIM */
+    .sobre-mim {
+        margin: 1.5rem 0;
+    }
+
+    .sobre-mim .sobre-container {
+        width: 92%;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 1.25rem;
+        gap: 1.5rem;
     }
 
-    #about img {
-        width: 160px;
+    .sobre-mim .sobre-foto img {
+        width: 190px;
     }
 
-    #about p {
+    .sobre-mim .sobre-texto {
+        text-align: left;
+    }
+
+    .sobre-mim .sobre-texto p {
         max-width: 60ch;
         margin: 0 auto;
         text-align: justify;
@@ -47,52 +56,66 @@
         text-align: justify;
     }
 
-    /* HOME - VIDEO: garante que o iframe não estoure */
-    #video {
-        text-align: center;
+    /* HARD SKILLS dentro do texto */
+    .sobre-texto .tecnologias {
+        align-items: flex-start;
     }
 
-    #video figure {
+    .sobre-texto .tags-tecnologias {
+        justify-content: flex-start;
+    }
+
+    /* HOME - VÍDEO FAVORITO */
+    .video-favorito {
+        width: 92%;
+        margin: 2rem auto 3rem auto;
+    }
+
+    .video-favorito h3 {
+        width: 100%;
+        margin: 0 0 0.75rem 0;
+        text-align: left;
+    }
+
+    .video-container {
+        width: 100%;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 0.75rem;
     }
 
-    #video iframe {
+    .video-container iframe {
         width: 100%;
         max-width: 720px;
         aspect-ratio: 16 / 9;
         height: auto;
     }
 
-    /* CONTATO: grid vira 1 coluna */
+    /* CONTATO */
     .main_contato {
         grid-template-columns: 1fr;
         width: 92%;
         margin: 1.5rem auto;
     }
 
-    /* Form: ajustes finos */
     form {
         padding: 1rem;
     }
 
-    /* Formulário — textarea adaptável no mobile */
     textarea {
         resize: vertical;
         min-height: 6rem;
         height: auto;
     }
 
-    /* MOBILE — Contato: mapa menor e proporcional */
     .article_mapa {
         width: 90%;
         margin: 0 auto;
         overflow: hidden;
     }
 
-    /* MOBILE — endereço em uma única linha */
     .article_mapa address {
         width: 100%;
         display: block;
@@ -102,14 +125,13 @@
         font-size: clamp(0.75rem, 3vw, 0.9rem);
     }
 
-    /* MAPA: mantém proporção e não domina a tela */
     .article_mapa iframe {
         width: 100%;
         aspect-ratio: 16 / 9;
         height: auto;
     }
 
-    /* FOOTER: texto em uma linha no mobile */
+    /* FOOTER */
     footer {
         padding-inline: 0.5rem;
     }
@@ -128,13 +150,11 @@
 
 @media (min-width: 769px) and (max-width: 1024px) {
 
-    /* Área principal: usar mais largura útil (evita “conteúdo pequeno”) */
-    main>section {
+    main > section {
         width: 94%;
         margin: 2rem auto;
     }
 
-    /* Header: mantém proporção sem esticar */
     header {
         padding: 1.25rem 2rem;
     }
@@ -143,33 +163,63 @@
         font-size: 2rem;
     }
 
-    /* HOME: ainda em coluna (melhor leitura em tablet) */
-    #about article {
+    /* HOME - SOBRE MIM */
+    .sobre-mim {
+        margin: 2rem 0;
+    }
+
+    .sobre-mim .sobre-container {
+        width: 94%;
         flex-direction: column;
         align-items: center;
         text-align: justify;
         gap: 1.5rem;
     }
 
-    #about img {
-        width: 220px;
+    .sobre-mim .sobre-foto img {
+        width: 230px;
     }
 
-    #about p {
+    .sobre-mim .sobre-texto p {
         max-width: 80ch;
         margin: 0 auto;
         text-align: justify;
     }
 
-    /* HOME — Vídeo: maior e proporcional no tablet */
-    #video iframe {
+    /* HARD SKILLS */
+    .sobre-texto .tecnologias {
+        align-items: flex-start;
+    }
+
+    .sobre-texto .tags-tecnologias {
+        justify-content: flex-start;
+    }
+
+    /* HOME - VÍDEO FAVORITO */
+    .video-favorito {
+        width: 94%;
+        margin: 2rem auto 3rem auto;
+    }
+
+    .video-favorito h3 {
+        width: 100%;
+        margin: 0 0 0.75rem 0;
+        text-align: left;
+    }
+
+    .video-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .video-container iframe {
         width: 100%;
         max-width: 720px;
         aspect-ratio: 16 / 9;
         height: auto;
     }
 
-    /* CONTATO: mantém 2 colunas, mas com respiro */
+    /* CONTATO */
     .main_contato {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -177,7 +227,6 @@
         margin: 2rem auto;
     }
 
-    /* Formulário: mais espaço interno */
     form {
         padding: 1.5rem;
     }
@@ -186,56 +235,53 @@
         min-height: 7rem;
     }
 
-    /* CONTATO: mapa ~60% centralizado */
     .article_mapa {
         width: 80%;
         margin: 0 auto;
     }
 
-    /* Mapa: proporcional ao form */
     .article_mapa iframe {
         aspect-ratio: 16 / 9;
         height: auto;
     }
 
-    /* Footer: texto legível sem exagerar */
     footer h3 {
         font-size: 0.85rem;
         white-space: nowrap;
     }
-
 }
 
 /* ==================== RESPONSIVIDADE - DESKTOP (1025px+) ==================== */
 
 @media (min-width: 1025px) {
 
-    /* Conteúdo mais “profissional” em telas grandes */
-    main>section {
+    main > section {
         width: min(1100px, 92%);
         margin: 2rem auto;
     }
 
-    /* HOME — Vídeo: grande e centralizado */
-    #video {
-        text-align: center;
+    .video-favorito {
+        width: min(1100px, 92%);
+        margin: 2rem auto 3rem auto;
     }
 
-    #video figure {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.75rem;
+    .video-favorito h3 {
         width: 100%;
+        margin: 0 0 1rem 0;
+        text-align: left;
     }
 
-    #video iframe {
+    .video-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .video-container iframe {
         width: min(900px, 100%);
         aspect-ratio: 16 / 9;
         height: auto;
     }
 
-    /* CONTATO: 2 colunas contidas */
     .main_contato {
         width: min(1100px, 92%);
         margin: 4rem auto;
@@ -243,19 +289,16 @@
         gap: 3rem;
     }
 
-    /* CONTATO: mapa ~60% centralizado */
     .article_mapa {
         width: 100%;
         margin: 0 auto;
     }
 
-    /* Mapa: proporcional ao form */
     .article_mapa iframe {
         aspect-ratio: 24 / 15;
         height: auto;
     }
 
-    /* Footer sem ellipsis no desktop */
     footer h3 {
         white-space: nowrap;
         overflow: visible;
@@ -267,7 +310,7 @@
 /* Desktop médio (até 1366px) */
 @media (min-width: 1025px) and (max-width: 1366px) {
 
-    main>section,
+    main > section,
     .main_contato {
         width: min(1000px, 92%);
     }
@@ -276,7 +319,7 @@
 /* Desktop grande (1600+ / até 23") */
 @media (min-width: 1600px) {
 
-    main>section,
+    main > section,
     .main_contato {
         width: min(1200px, 85%);
     }
